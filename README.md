@@ -14,15 +14,15 @@ httpuv.get(url[, { [headers]: { ... }, [query]: { ... } }]);
 ```
 ##### POST
 ```
-httpuv.post(url[, { [headers]: { ... }, [query]: { ... }, body: ... }]);
+httpuv.post(url[, { [headers]: { ... }, [query]: { ... }, [body]: ... }]);
 ```
 ##### PUT
 ```
-httpuv.put(url[, { [headers]: { ... }, [query]: { ... }, body: ... }]);
+httpuv.put(url[, { [headers]: { ... }, [query]: { ... }, [body]: ... }]);
 ```
 ##### PATCH
 ```
-httpuv.patch(url[, { [headers]: { ... }, [query]: { ... }, body: ... }]);
+httpuv.patch(url[, { [headers]: { ... }, [query]: { ... }, [body]: ... }]);
 ```
 ##### DELETE
 ```

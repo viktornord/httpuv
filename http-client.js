@@ -92,4 +92,4 @@ const httpClient = {
   },
 };
 
-module.exports.httpClient = httpClient;
+module.exports = httpClient;
