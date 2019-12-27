@@ -6,7 +6,7 @@
 - Lightweight ( **< 3 KB** )
 - Zero dependencies
 
-##API
+## API
 
 ##### GET
 ```
