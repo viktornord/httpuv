@@ -44,9 +44,17 @@ const response = await httpuv.get('https://foo.com/bar', {
 ...
 // inside async function
 // Posting a data with headers
-const result = await httpuv.post('https://foo.com/bar', {
-  body: { baz: 1 },
-  headers: { 'Authentication': 'Bearer ...' },
-})
-  
+try {
+    const response = await httpuv.post('https://foo.com/bar', {
+      body: { baz: 1 },
+      headers: { 'Authentication': 'Bearer ...' },
+    })
+  console.log(`status code ${response.statusCode}`);
+  console.log(`status message ${response.statusMessage}`);
+  console.log(`response body ${JSON.stringify(response.data)}`);
+} catch (e) {
+  console.log(`status code ${response.statusCode}`);
+  console.log(`status message ${response.statusMessage}`);
+  console.log(`Error ${JSON.stringify(response.error)}`); 
+}
 ```
