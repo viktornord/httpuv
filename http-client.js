@@ -18,10 +18,9 @@ function request(url, {
     const requestInst = https.request({
       hostname,
       port,
-      path,
+      path: `${path}?${[query, strigifiedParams].filter(val => val).join('&')}`,
       method,
       headers,
-      query: [query, strigifiedParams].filter(val => val).join('&'),
     }, (res) => {
       const responseType = res['content-type'] || RESPONSE_TYPES.JSON;
       let rawResponse = Buffer.from([]);
@@ -31,10 +30,16 @@ function request(url, {
         })
         .on('error', reject)
         .on('end', () => {
+          const { statusCode, statusMessage, headers } = res;
           try {
-            resolve(handleResponse({ statusCode: res.statusCode, rawResponse, responseType }));
+            resolve({
+              statusCode,
+              statusMessage,
+              headers,
+              data: handleResponse({ statusCode: res.statusCode, rawResponse, responseType })
+            });
           } catch (error) {
-            reject(error);
+            reject({ statusCode, statusMessage, error });
           }
         });
     }).on('error', reject);
