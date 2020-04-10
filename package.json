@@ -1,6 +1,6 @@
 {
   "name": "httpuv",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple promise-based http client for node.js with zero dependencies",
   "main": "http-client.js",
   "scripts": {
