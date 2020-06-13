@@ -18,9 +18,10 @@ function request(url, {
     const requestInst = https.request({
       hostname,
       port,
-      path: `${path}?${[query, strigifiedParams].filter(val => val).join('&')}`,
+      path,
       method,
       headers,
+      query: [query, strigifiedParams].filter(val => val).join('&'),
     }, (res) => {
       const responseType = res['content-type'] || RESPONSE_TYPES.JSON;
       let rawResponse = Buffer.from([]);
